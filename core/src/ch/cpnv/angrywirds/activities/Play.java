@@ -77,9 +77,9 @@ public class Play extends Game implements InputProcessor {
             try {
                 scene.dropElement(new PhysicalObject(new Vector2(alea.nextFloat() * WORLD_WIDTH, 0), BLOCK_SIZE, BLOCK_SIZE, "block.png"));
             } catch (ObjectOutOfBoundsException e) {
-                Gdx.app.log("ANGRY", "Object out of bounds: " + e.getMessage());
+                //Gdx.app.log("ANGRY", "Object out of bounds: " + e.getMessage());
             } catch (SceneCollapseException e) {
-                Gdx.app.log("ANGRY", "Unstable object: " + e.getMessage());
+                //Gdx.app.log("ANGRY", "Unstable object: " + e.getMessage());
             }
         }
         int TNTLeft = 5;
@@ -88,20 +88,20 @@ public class Play extends Game implements InputProcessor {
                 scene.dropElement(new TNT(new Vector2(alea.nextFloat() * WORLD_WIDTH, FLOOR_HEIGHT + BLOCK_SIZE), 0));
                 TNTLeft--;
             } catch (ObjectOutOfBoundsException e) {
-                Gdx.app.log("ANGRY", "TNT out of bounds: " + e.getMessage());
+                //Gdx.app.log("ANGRY", "TNT out of bounds: " + e.getMessage());
             } catch (SceneCollapseException e) {
-                Gdx.app.log("ANGRY", "Unstable TNT: " + e.getMessage());
+                //Gdx.app.log("ANGRY", "Unstable TNT: " + e.getMessage());
             }
         }
-        int pigsLeft = 5;
+        int pigsLeft = 1;
         while (pigsLeft > 0) {
             try {
                 scene.dropElement(new Pig(new Vector2(alea.nextFloat() * WORLD_WIDTH, FLOOR_HEIGHT + BLOCK_SIZE), voc.pickAWord()));
                 pigsLeft--;
             } catch (ObjectOutOfBoundsException e) {
-                Gdx.app.log("ANGRY", "Pig out of bounds: " + e.getMessage());
+                //Gdx.app.log("ANGRY", "Pig out of bounds: " + e.getMessage());
             } catch (SceneCollapseException e) {
-                Gdx.app.log("ANGRY", "Unstable pig: " + e.getMessage());
+                //Gdx.app.log("ANGRY", "Unstable pig: " + e.getMessage());
             }
         }
 
@@ -148,6 +148,11 @@ public class Play extends Game implements InputProcessor {
                         if (((Pig)phob).getWord() == panel.getWord()) {
                             scoreVal++;
                             scene.removeElement(phob);
+
+                            // Version simple
+                            AngryWirds.pages.push(new Win());
+
+
                         } else {
                             scoreVal--;
                             if (scoreVal == 0) { // Game over

@@ -18,6 +18,8 @@ public class Word {
         return value2;
     }
 
+    //public boolean isFound() { return found;}
+
     public Word(String value1, String value2) {
         this.value1 = value1;
         this.value2 = value2;

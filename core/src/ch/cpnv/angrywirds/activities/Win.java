@@ -11,7 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import ch.cpnv.angrywirds.AngryWirds;
 
-public class Welcome extends Game implements InputProcessor {
+public class Win extends Game implements InputProcessor {
 
     public static final float WORLD_WIDTH = 1600;
     public static final float WORLD_HEIGHT = 900;
@@ -22,7 +22,7 @@ public class Welcome extends Game implements InputProcessor {
 
     private OrthographicCamera camera;
 
-    public Welcome() {
+    public Win() {
 
         batch = new SpriteBatch();
         background = new Texture(Gdx.files.internal("background.jpg"));
@@ -33,7 +33,7 @@ public class Welcome extends Game implements InputProcessor {
         camera.update();
 
         title= new BitmapFont();
-        title.setColor(Color.ROYAL);
+        title.setColor(Color.GREEN);
         title.getData().setScale(6);
 
         Gdx.input.setInputProcessor(this);
@@ -54,7 +54,7 @@ public class Welcome extends Game implements InputProcessor {
         batch.begin();
         batch.setProjectionMatrix(camera.combined);
         batch.draw(background, 0, 0, camera.viewportWidth, camera.viewportHeight);
-        title.draw(batch,"Welcom",WORLD_WIDTH/2,WORLD_HEIGHT/2);
+        title.draw(batch,"You Win, Click to play again",WORLD_WIDTH/10,WORLD_HEIGHT/2);
         batch.end();
     }
 
@@ -75,6 +75,9 @@ public class Welcome extends Game implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        //AngryWirds.pages.pop(); // Game over
+        //AngryWirds.pages.pop(); // Play
+        //Gdx.input.setInputProcessor((InputProcessor)AngryWirds.pages.peek()); // Welcome
         AngryWirds.pages.push(new Play());
         return false;
     }
