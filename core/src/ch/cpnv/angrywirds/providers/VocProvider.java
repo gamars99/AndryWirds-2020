@@ -19,10 +19,16 @@ public class VocProvider {
     // private constructor restricted to this class itself
     private VocProvider()
     {
-        vocs = new ArrayList<Vocabulary>();
+        // Language
         languages = new ArrayList<Language>();
-        SemanticWord sw;
+        Language language;
+        language= new Language("fr","Français");languages.add(language);
+        language = new Language("en","Anglais");languages.add(language);
+        language = new Language("es","Espagnole");languages.add(language);
 
+        //Voc
+        vocs = new ArrayList<Vocabulary>();
+        SemanticWord sw;
         Vocabulary voc = new Vocabulary("L'argent");
 
         try {
