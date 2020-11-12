@@ -21,7 +21,7 @@ public final class Pig extends TextualObject {
     private Bubble scream = null; // A bubble to show the pig's word to the player
 
     public Pig(Vector2 position, SemanticWord word) {
-        super(position, WIDTH, HEIGHT, PICNAME, word.getValue("fr"));
+        super(position, WIDTH, HEIGHT, PICNAME, word.getValue("es"));
         this.word = word;
     }
 

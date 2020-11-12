@@ -93,7 +93,7 @@ public class Play extends Game implements InputProcessor {
                 //Gdx.app.log("ANGRY", "Unstable TNT: " + e.getMessage());
             }
         }
-        int pigsLeft = 1;
+        int pigsLeft = 3;
         while (pigsLeft > 0) {
             try {
                 scene.dropElement(new Pig(new Vector2(alea.nextFloat() * WORLD_WIDTH, FLOOR_HEIGHT + BLOCK_SIZE), voc.pickAWord()));
@@ -127,11 +127,6 @@ public class Play extends Game implements InputProcessor {
 
         Gdx.input.setInputProcessor(this);
     }
-    @Override
-    public void create() {
-
-    }
-
     public void update() {
         float dt = Gdx.graphics.getDeltaTime();
         if (dt < 1.0f) // ignore major lapses like the one at the beginning of the app
@@ -175,6 +170,11 @@ public class Play extends Game implements InputProcessor {
             rubberBand2.between(new Vector2(tweety.getX() + 20, tweety.getY() + 10), new Vector2(SLINGSHOT_OFFSET + 15, SLINGSHOT_HEIGHT + FLOOR_HEIGHT - 40));
 
         }
+
+    }
+
+    @Override
+    public void create() {
 
     }
 
