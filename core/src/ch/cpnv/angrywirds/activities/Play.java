@@ -61,10 +61,17 @@ public class Play extends Game implements InputProcessor {
     private RubberBand rubberBand2;
     private BitmapFont scoreDisp;
 
+    private BitmapFont languagesUse;
+    private String languageFromStr;
+    private String languageToStr;
+
     private OrthographicCamera camera;
 
-    public Play()
+    public Play(String languageFrom, String languageTo)
     {
+        languageFromStr = languageFrom;
+        languageToStr = languageTo;
+
         alea = new Random();
 
         tweety = new Bird(new Vector2(AIMING_ZONE_X-Bird.WIDTH, AIMING_ZONE_Y-Bird.HEIGHT), new Vector2(0, 0));
@@ -120,12 +127,17 @@ public class Play extends Game implements InputProcessor {
         scoreDisp.setColor(Color.BLACK);
         scoreDisp.getData().setScale(2);
 
+        languagesUse = new BitmapFont();
+        languagesUse.setColor(Color.BLACK);
+        languagesUse.getData().setScale(2);
+
         slingshot1 = new Texture(Gdx.files.internal("slingshot1.png"));
         slingshot2 = new Texture(Gdx.files.internal("slingshot2.png"));
         rubberBand1 = new RubberBand();
         rubberBand2 = new RubberBand();
 
         Gdx.input.setInputProcessor(this);
+        Gdx.app.log("MMMMEEECCCC", "le languageFrom c'est : " + languageFrom + " to " +languageTo);
     }
     public void update() {
         float dt = Gdx.graphics.getDeltaTime();
@@ -192,6 +204,7 @@ public class Play extends Game implements InputProcessor {
         scene.draw(batch);
         panel.draw(batch);
         batch.draw(slingshot2, SLINGSHOT_OFFSET, FLOOR_HEIGHT, SLINGSHOT_WIDTH, SLINGSHOT_HEIGHT);
+        displayLanguage(batch);
         displayScore(batch);
         batch.end();
     }
@@ -199,6 +212,10 @@ public class Play extends Game implements InputProcessor {
     private void displayScore(SpriteBatch batch)
     {
         scoreDisp.draw(batch, "Score: "+scoreVal, WORLD_WIDTH-150, WORLD_HEIGHT-60);
+    }
+
+    private void displayLanguage(SpriteBatch batch){
+        languagesUse.draw(batch,languageFromStr +" to "+languageToStr,WORLD_WIDTH-1000,WORLD_HEIGHT-60);
     }
 
     @Override

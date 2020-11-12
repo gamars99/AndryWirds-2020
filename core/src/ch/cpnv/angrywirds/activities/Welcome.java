@@ -75,7 +75,7 @@ public class Welcome extends Game implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        AngryWirds.pages.push(new Play());
+        AngryWirds.pages.push(new Play("Français","Allemand"));
         return false;
     }
 

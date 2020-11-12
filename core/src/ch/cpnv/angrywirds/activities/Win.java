@@ -78,7 +78,7 @@ public class Win extends Game implements InputProcessor {
         //AngryWirds.pages.pop(); // Game over
         //AngryWirds.pages.pop(); // Play
         //Gdx.input.setInputProcessor((InputProcessor)AngryWirds.pages.peek()); // Welcome
-        AngryWirds.pages.push(new Play());
+        AngryWirds.pages.push(new Welcome());
         return false;
     }
 
