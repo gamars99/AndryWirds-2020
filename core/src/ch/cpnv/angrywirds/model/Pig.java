@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 
+import ch.cpnv.angrywirds.activities.Play;
 import ch.cpnv.angrywirds.model.Data.SemanticWord;
 import ch.cpnv.angrywirds.model.Data.Word;
 

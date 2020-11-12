@@ -137,7 +137,6 @@ public class Play extends Game implements InputProcessor {
         rubberBand2 = new RubberBand();
 
         Gdx.input.setInputProcessor(this);
-        Gdx.app.log("MMMMEEECCCC", "le languageFrom c'est : " + languageFrom + " to " +languageTo);
     }
     public void update() {
         float dt = Gdx.graphics.getDeltaTime();
