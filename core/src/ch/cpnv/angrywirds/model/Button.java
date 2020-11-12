@@ -18,14 +18,14 @@ public class Button extends TextualObject {
     private String value;
     private BitmapFont font;
 
-    public Button(Language language){
-        super(new Vector2 (x,y),x+160,y+60,PICNAME,language.getDisplayName());
+    public Button(String value){
+        super(new Vector2 (x,y),x+160,y+60,PICNAME,value);
         font= new BitmapFont();
         font.setColor(Color.BLACK);
         font.getData().setScale(2);
     }
 
-    public String getValue(){ return value}
+    public String getValue(){ return value;}
 
     public void draw(Batch batch){
         super.draw(batch);
